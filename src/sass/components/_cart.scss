@@ -1,0 +1,132 @@
+.cart {
+  @include flex(flex-start, flex-start);
+
+  @include mobile {
+    flex-wrap: wrap;
+  }
+
+  &__list {
+    width: 60%;
+
+    @include mobile {
+      width: 100%;
+    }
+  }
+
+  &__info {
+    padding: 1.5rem;
+    margin-right: 2rem;
+    margin-top: 2rem;
+    box-shadow: $box-shadow;
+    position: sticky;
+    top: calc(#{$header-shrink-height} + 20px);
+
+    @include tablet {
+      width: 50%;
+      margin-right: 0;
+      position: unset;
+    }
+
+    @include mobile {
+      width: 100%;
+      margin-right: 0;
+      margin-bottom: 2rem;
+      position: unset;
+    }
+
+    &__txt {
+      & > * {
+        margin-bottom: 10px;
+        text-align: center;
+      }
+
+      p {
+        font-size: 1.5rem;
+      }
+
+      &__price {
+        @include flex(center, space-between);
+        font-style: italic;
+        font-weight: bold;
+        padding: 1rem 0;
+        font-size: 1.25rem;
+      }
+    }
+
+    &__btn {
+      & > * {
+        margin-bottom: 20px;
+      }
+    }
+  }
+
+  &__item {
+    @include flex(center, flex-start);
+    margin-bottom: 20px;
+
+    &__image {
+      margin-right: 20px;
+
+      img {
+        height: 150px;
+      }
+    }
+
+    &__info {
+      @include flex(center, space-between);
+      flex-grow: 1;
+
+      @include tablet {
+        @include flex(flex-start, center);
+        flex-direction: column;
+
+        & > * {
+          margin-bottom: 10px;
+        }
+      }
+      @include mobile {
+        @include flex(flex-start, center);
+        flex-direction: column;
+
+        & > * {
+          margin-bottom: 10px;
+        }
+      }
+
+      &__name {
+        width: 40%;
+        display: flex;
+        flex-direction: column;
+
+        &__total {
+          margin-top: 1rem;
+          font-size: 1.2rem;
+          font-weight: bold;
+          color: $main-color;
+        }
+        @include tablet {
+          width: 100%;
+        }
+        @include mobile {
+          width: 100%;
+        }
+      }
+
+      &__name,
+      &__price {
+        font-size: 1.25rem;
+      }
+      &__del {
+        font-size: 1.5rem;
+
+        i {
+          cursor: pointer;
+
+          &:hover {
+            color: $main-color;
+          }
+        }
+      }
+    }
+  }
+}
